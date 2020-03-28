@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  clickhouse:
+    image: yandex/clickhouse-server
+    volumes:
+      - "./data:/var/lib/clickhouse"
+    ports:
+      - "9123:9000"
+      - "8123:8123"
+
+  php:
+    user: "1000:50"
+    build: ./images/php
+    volumes:
+      - "./php:/var/www/app"
+    depends_on:
+      - clickhouse

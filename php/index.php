@@ -8,5 +8,3 @@ $db = new ClickHouseDB\Client([
     'username' => 'default',
     'password' => ''
 ]);
-
-$db->database('default');
